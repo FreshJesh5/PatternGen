@@ -5,6 +5,7 @@ import java.io.File;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.nfc.Tag;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
@@ -15,8 +16,10 @@ import com.auo.pg.pattern.Pattern;
 
 public class ImagePattern extends Pattern {
 
-//    private final String mDirectory = Environment.getExternalStorageDirectory().getPath() + File.separator + "pg" + File.separator + "pic";
-    private final String mDirectory = "/storage/emulated/0/Pictures";
+    private final String TAG = "ImagePattern";
+
+//    private final String mDirectory = Environment.getExternalStorageDirectory().getPath() + File.separator + "Pictures";
+    private final String mDirectory = "/sdcard/Pictures";
     protected String mImages[] = null;
     private int mIndex = 0;
 
@@ -49,7 +52,13 @@ public class ImagePattern extends Pattern {
     }
 
     private void getImagePath() {
+
+        Log.d(TAG, "getImagePath() called;" + mDirectory);
+
         File f = new File(mDirectory);
+
+        Log.d(TAG, String.valueOf(f.exists()));
+
         if (f.exists()) {
             mImages = f.list();
         }
