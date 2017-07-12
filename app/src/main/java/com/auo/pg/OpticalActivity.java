@@ -28,6 +28,8 @@ import com.auo.pg.pattern.optical.color.OpticalColorPattern;
 import com.auo.pg.pattern.optical.color.OpticalGreenPattern;
 import com.auo.pg.pattern.optical.color.OpticalRedPattern;
 import com.auo.pg.pattern.optical.color.OpticalWhitePattern;
+import com.auo.pg.pattern.optical.gradient.OpticalGrad1Pattern;
+import com.auo.pg.pattern.optical.gradient.OpticalGrad2Pattern;
 import com.auo.pg.pattern.optical.gray.OpticalGray127Pattern;
 import com.auo.pg.pattern.optical.gray.OpticalGray159Pattern;
 import com.auo.pg.pattern.optical.gray.OpticalGray191Pattern;
@@ -93,6 +95,9 @@ public class OpticalActivity extends NoTitleActivity {
             setStickPattern();
             startTimer(type);
             break;
+        case OpticalPatternType.TYPE_GRADIENT:
+            setGradientPattern();
+            break;
         case OpticalPatternType.TYPE_DEFAULT:
         case OpticalPatternType.TYPE_COLOR:
         default:
@@ -100,6 +105,21 @@ public class OpticalActivity extends NoTitleActivity {
             startTimer(type);
             break;
         }
+    }
+
+    private void setGradientPattern() {
+        mPatternList.add(OpticalGrad1Pattern.class);
+        mPatternList.add(OpticalGrad2Pattern.class);
+
+        showPattern();
+
+        mView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPattern.destroy();
+                showPattern();
+            }
+        });
     }
 
     private void setColorPatterns() {

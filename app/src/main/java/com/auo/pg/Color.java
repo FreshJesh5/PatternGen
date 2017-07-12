@@ -8,4 +8,6 @@ public class Color extends android.graphics.Color {
     public static final int GRAY159 = 0xff9f9f9f;
     public static final int GRAY191 = 0xffbfbfbf;
     public static final int GRAY233 = 0xffefefef;
+    public static final int GREEN = 0x006400;
+    public static final int WHITE = 0x000000;
 }

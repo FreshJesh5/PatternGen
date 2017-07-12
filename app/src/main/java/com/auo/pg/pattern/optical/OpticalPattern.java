@@ -20,6 +20,7 @@ public class OpticalPattern extends Pattern {
         public final byte TYPE_XTALK = 0x03;
         public final byte TYPE_FLICKER = 0x04;
         public final byte TYPE_STICK = 0x05;
+        public final byte TYPE_GRADIENT = 0x06;
     }
 
     protected byte mType = OpticalPatternType.TYPE_DEFAULT;

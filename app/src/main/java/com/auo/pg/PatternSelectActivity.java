@@ -25,6 +25,7 @@ public class PatternSelectActivity extends NoTitleActivity {
     private Button mXtalk;
     private Button mFlicker;
     private Button mStick;
+    private Button mGradient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class PatternSelectActivity extends NoTitleActivity {
         mXtalk = (Button) findViewById(R.id.btn_xtalk);
         mFlicker = (Button) findViewById(R.id.btn_flicker);
         mStick = (Button) findViewById(R.id.btn_stick);
+        mGradient = (Button) findViewById(R.id.btn_gradient);
 
         mColor.setOnClickListener(new OnClickListener() {
             @Override
@@ -80,6 +82,15 @@ public class PatternSelectActivity extends NoTitleActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(PatternSelectActivity.this, OpticalActivity.class);
                 intent.putExtra(OpticalPatternType.PATTERN_TYPE, OpticalPatternType.TYPE_STICK);
+                startActivity(intent);
+            }
+        });
+
+        mGradient.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PatternSelectActivity.this, OpticalActivity.class);
+                intent.putExtra(OpticalPatternType.PATTERN_TYPE, OpticalPatternType.TYPE_GRADIENT);
                 startActivity(intent);
             }
         });
